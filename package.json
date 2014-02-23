@@ -17,5 +17,9 @@
       "url": "https://github.com/masterdipesh/angular-local-cache/wiki/LICENSE"
     }
   ],
-  "postinstall": "bower install"
+  "postinstall": "bower install",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.3.2"
+  }
 }

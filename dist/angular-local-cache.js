@@ -1,6 +1,6 @@
 /**
  * @author Dipesh Patel <masterdipesh@gmail.com>
- * @file angular-local-cache-0.0.1.js
+ * @file angular-local-cache.js
  * @version 0.0.1 - Homepage <https://github.com/masterdipesh/angular-local-cache/>
  * @copyright (c) 2014 Dipesh Patel <https://github.com/masterdipesh/angular-local-cache>
  * @license MIT <https://github.com/masterdipesh/angular-local-cache/wiki/LICENSE>
