@@ -15,7 +15,8 @@
     "coverage/",
     "node_modules/",
     "test/",
-    ".gitignore"
+    ".gitignore",
+    "package.json"
   ],
   "devDependencies": {
     "angular-1.2.13": "angular#1.2.13"
