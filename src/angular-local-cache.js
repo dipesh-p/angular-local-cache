@@ -26,11 +26,14 @@ AngularLocalCache.provider('$ngLocalCache',function(){
 	var keys_index=[];
 
 	function init(){
-		for (var i = 0; i < localStorage.length; i++){
-			var key=localStorage.key(i);
-			//localStorage.removeItem(key);
-			keys_index.push(key.replace(options.keyPrefix+"-",""));
-			keys[key.replace(options.keyPrefix+"-","")]=JSON.parse(localStorage.getItem(key));
+		try{
+			for(var i = 0; i < localStorage.length; i++){
+				var key = localStorage.key(i);
+				//localStorage.removeItem(key);
+				keys_index.push(key.replace(options.keyPrefix + "-", ""));
+				keys[key.replace(options.keyPrefix + "-", "")] = JSON.parse(localStorage.getItem(key));
+			}
+		}catch(e){
 		}
 	}
 	init();

@@ -1,6 +1,6 @@
 /**
  * @author Dipesh Patel <masterdipesh@gmail.com>
- * @file angular-local-cache.js
+ * @file angular-local-cache-0.0.1.js
  * @version 0.0.1 - Homepage <https://github.com/masterdipesh/angular-local-cache/>
  * @copyright (c) 2014 Dipesh Patel <https://github.com/masterdipesh/angular-local-cache>
  * @license MIT <https://github.com/masterdipesh/angular-local-cache/wiki/LICENSE>
@@ -26,11 +26,14 @@ AngularLocalCache.provider('$ngLocalCache',function(){
 	var keys_index=[];
 
 	function init(){
-		for (var i = 0; i < localStorage.length; i++){
-			var key=localStorage.key(i);
-			//localStorage.removeItem(key);
-			keys_index.push(key.replace(options.keyPrefix+"-",""));
-			keys[key.replace(options.keyPrefix+"-","")]=JSON.parse(localStorage.getItem(key));
+		try{
+			for(var i = 0; i < localStorage.length; i++){
+				var key = localStorage.key(i);
+				//localStorage.removeItem(key);
+				keys_index.push(key.replace(options.keyPrefix + "-", ""));
+				keys[key.replace(options.keyPrefix + "-", "")] = JSON.parse(localStorage.getItem(key));
+			}
+		}catch(e){
 		}
 	}
 	init();
@@ -55,26 +58,26 @@ AngularLocalCache.provider('$ngLocalCache',function(){
 			try {
 				var isSupported = ('localStorage' in window && window['localStorage'] !== null);
 				/*
-					In OS X or iOS in Private Browsing Mode, it seems to support localStorage, 
-					but when setItem is called it throws QUOTA_EXCEEDED_ERR
-				*/
+				 In OS X or iOS in Private Browsing Mode, it seems to support localStorage,
+				 but when setItem is called it throws QUOTA_EXCEEDED_ERR
+				 */
 				var key = options.keyPrefix + '__' + Math.round(Math.random() * 1e7);
 				if (isSupported) {
-				  localStorage.setItem(key, '');
-				  localStorage.removeItem(key);
+					localStorage.setItem(key, '');
+					localStorage.removeItem(key);
 				}
 				return isSupported;
-		  	} catch (e) {
+			} catch (e) {
 				return false;
-		  	}
+			}
 		};
 		// Function to check whetther browser supports cookies or not
 		var browserSupportsCookies = function() {
 			try {
 				return navigator.cookieEnabled ||
-				("cookie" in document && (document.cookie.length > 0 ||
+					("cookie" in document && (document.cookie.length > 0 ||
 					(document.cookie = "test").indexOf.call(document.cookie, "test") > -1));
-			} 
+			}
 			catch (e) {
 				return false;
 			}
