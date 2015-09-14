@@ -2,7 +2,7 @@
   "author": "Dipesh Patel",
   "name": "angular-local-cache",
   "description": "AngularJS Module to support local cache supporting the expiry of individual key",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/masterdipesh/angular-local-cache",
   "repository": {
     "type": "git",
@@ -24,8 +24,8 @@
   "devDependencies": {
     "angular-1.2.13": "angular#1.2.13"
   },
-  "dependencies":{
-    "angular":"1.2.13"
+  "dependencies": {
+    "angular": "1.2.13"
   },
   "resolutions": {
     "angular": "1.2.13"
