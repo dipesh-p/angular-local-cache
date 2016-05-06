@@ -30,8 +30,12 @@ AngularLocalCache.provider('$ngLocalCache',function(){
 			for(var i = 0; i < localStorage.length; i++){
 				var key = localStorage.key(i);
 				//localStorage.removeItem(key);
-				keys_index.push(key.replace(options.keyPrefix + "-", ""));
-				keys[key.replace(options.keyPrefix + "-", "")] = JSON.parse(localStorage.getItem(key));
+				if(key.indexOf(options.keyPrefix+"-")===0){
+					keys_index.push(key.replace(options.keyPrefix + "-", ""));
+					keys[key.replace(options.keyPrefix + "-", "")] = JSON.parse(localStorage.getItem(key));
+				}else{
+					keys[key] = localStorage.getItem(key);
+				}
 			}
 		}catch(e){
 		}
